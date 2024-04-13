@@ -23,4 +23,6 @@ class RepositorioTask:
         self.db.refresh(db_task)
         return db_task
 
-        
+    def obtain(self, idtask: int):
+        task = self.db.query(model_task.Task).get(idtask)
+        return task
