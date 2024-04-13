@@ -26,3 +26,8 @@ class RepositorioTask:
     def obtain(self, idtask: int):
         task = self.db.query(model_task.Task).get(idtask)
         return task
+    
+    def update(self, idtask: int):
+        stmt = update(model_task.Task).where(model_task.Task.id == idtask).values(isDone = True)
+        self.db.execute(stmt)
+        self.db.commit()

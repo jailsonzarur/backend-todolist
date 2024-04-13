@@ -22,3 +22,8 @@ def alltasks(db: Session = Depends(get_db)):
 def singletask(id: int, db: Session = Depends(get_db)):
     task = RepositorioTask(db).obtain(id)
     return task
+
+@app.put('/task/{id}')
+def updatetask(id: int, db: Session = Depends(get_db)):
+    RepositorioTask(db).update(id)
+    return {"Message": "Update successfully."}
