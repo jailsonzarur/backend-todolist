@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from sqlalchemy import select, values, exists, insert, update
+from sqlalchemy import select, values, delete, update, exists
 from server.infra.sqlalchemy.models import model_task
 from server.schemas import schemas_task
 
@@ -28,6 +28,23 @@ class RepositorioTask:
         return task
     
     def update(self, idtask: int):
+        if not self.obtain(idtask):
+            return {"Message": "This task not exists."}
         stmt = update(model_task.Task).where(model_task.Task.id == idtask).values(isDone = True)
         self.db.execute(stmt)
         self.db.commit()
+        return {"Message": "Updated successfully."}
+
+    def delete(self, idtask: int): 
+        if not self.obtain(idtask):
+            return {"Message": "This task not exists."}
+        stmt = delete(model_task.Task).where(model_task.Task.id == idtask)
+        self.db.execute(stmt)
+        self.db.commit()
+        return {"Message": "Successfully deleted."}
+
+    def exist(self, idtask: int):
+        exists_criteria = exists().where(model_task.Task.id == idtask)
+        stmt = select(model_task.Task).where(exists_criteria)
+        existtask = self.db.execute(stmt)
+        return existtask
