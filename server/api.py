@@ -17,7 +17,7 @@ middleware = [
         allow_methods=['*'],
         allow_headers=['*']
     )
-]
+] 
 
 criar_db()
 
