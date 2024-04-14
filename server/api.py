@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from server.infra.sqlalchemy.repositories.repositorie_task import RepositorioTask
 from server.routers import routers_task
 
-"""origins = ['*']
+origins = ['http://localhost:5173/','https://igtodo.vercel.app/']
 
 middleware = [
     Middleware(
@@ -17,7 +17,7 @@ middleware = [
         allow_methods=['*'],
         allow_headers=['*']
     )
-]"""
+]
 
 criar_db()
 
