@@ -7,12 +7,10 @@ from sqlalchemy.orm import Session
 from server.infra.sqlalchemy.repositories.repositorie_task import RepositorioTask
 from server.routers import routers_task
 
-origins = ['http://localhost:5173/','https://igtodo.vercel.app/']
-
 middleware = [
     Middleware(
         CORSMiddleware,
-        allow_origins=origins,
+        allow_origins=['*'],
         allow_credentials=True,
         allow_methods=['*'],
         allow_headers=['*']
@@ -21,7 +19,7 @@ middleware = [
 
 criar_db()
 
-app = FastAPI()
+app = FastAPI(middleware=middleware)
 
 #TASK ROUTERS
 app.include_router(routers_task.router)
