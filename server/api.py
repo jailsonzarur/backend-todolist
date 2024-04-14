@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from server.infra.sqlalchemy.repositories.repositorie_task import RepositorioTask
 from server.routers import routers_task
 
-origins = ['*']
+"""origins = ['*']
 
 middleware = [
     Middleware(
@@ -17,7 +17,7 @@ middleware = [
         allow_methods=['*'],
         allow_headers=['*']
     )
-] 
+]"""
 
 criar_db()
 
