@@ -19,6 +19,7 @@ middleware = [
     )
 ]
 
+criar_db()
 
 app = FastAPI()
 

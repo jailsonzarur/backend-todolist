@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 #SQLALCHEMY_DATABASE_URL = "sqlite:///./app_task.db"
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:pangare@localhost:5432/app_task"
+SQLALCHEMY_DATABASE_URL = "postgresql://backend_todolist_db_user:sVFbYqCAJ5Dyl2povQCl7yMYyYHWB6d0@dpg-coe0us20si5c73990rq0-a.oregon-postgres.render.com/backend_todolist_db"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
