@@ -6,6 +6,10 @@ from server.infra.sqlalchemy.repositories.repositorie_task import RepositorioTas
 
 router = APIRouter()
 
+@router.get('/')
+def hello():
+    return {"Message": "Hello Izaias!"}
+
 @router.post('/task', status_code= status.HTTP_201_CREATED)
 def createtask(task: Task, db: Session = Depends(get_db)):
     task_criada = RepositorioTask(db).criar(task)
