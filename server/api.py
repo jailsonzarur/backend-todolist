@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from server.infra.sqlalchemy.repositories.repositorie_task import RepositorioTask
 from server.routers import routers_task
 
-origins = ['http://127.0.0.1:8000/']
+origins = ['*']
 
 middleware = [
     Middleware(
